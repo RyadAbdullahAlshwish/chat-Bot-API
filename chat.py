@@ -12,8 +12,8 @@ load_dotenv()
 PAGE_TITLE = "Omar AI "
 PAGE_ICON = "🚀"
 DEVELOPER_NAME = "AI Omar"
-MODEL_NAME = "gemini-flash-lite-latest"
-
+#MODEL_NAME = "gemini-flash-lite-latest"
+MODEL_NAME = "gemini-flash-latest"
 
 #=============================================================================================================================================================
 
@@ -251,4 +251,5 @@ if prompt := st.chat_input("Ask Omar AI anything..."):
             st.error(f"Something went wrong: {str(e)}")
 
 st.markdown(f"<div class='footer-note'>Developed by Omar Al-Shawsh</div>", unsafe_allow_html=True)
+
 
