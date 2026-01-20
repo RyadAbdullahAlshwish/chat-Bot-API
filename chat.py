@@ -216,21 +216,7 @@ if "chat_session" not in st.session_state:
         st.error("❌ Could not connect to any Gemini model. Check your API key.")
         st.stop()
 
-# --- HEADER CONTROLS ---
-col1, col2, col3 = st.columns([1, 2, 1])
-with col3:
-    if st.button("✨ New Chat", use_container_width=True):
-        st.session_state.messages = []
-        # Re-initialize with fallback
-        for model_id in ["gemini-flash-latest", "gemini-3-flash-preview", "gemini-2.0-flash-exp"]:
-            try:
-                st.session_state.chat_session = client.chats.create(
-                    model=model_id,
-                    config=types.GenerateContentConfig(system_instruction=SYSTEM_PROMPT)
-                )
-                break
-            except: continue
-        st.rerun()
+
 
 # --- MAIN UI ---
 st.markdown("<h1 class='glowing-title'>Omar AI 🚀</h1>", unsafe_allow_html=True)
@@ -265,3 +251,4 @@ if prompt := st.chat_input("Ask Omar AI anything..."):
             st.error(f"Something went wrong: {str(e)}")
 
 st.markdown(f"<div class='footer-note'>Developed by Omar Al-Shawsh</div>", unsafe_allow_html=True)
+
